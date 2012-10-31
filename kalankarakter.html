@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<title>JQuery Kalan Karakter Uygulamsi</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">
+var ToplamKarakter=500;
+ 
+function kontrol(event){
+        if(event){
+            var Uzunluk=$('#kutu').val().length;
+            var KalanKarakter=ToplamKarakter-Uzunluk;
+            if(KalanKarakter<0){
+                $('#limit').attr('disabled',true);
+                $('#limit').val('Kalan: '+KalanKarakter);
+            }else{
+                $('#limit').val('Kalan: '+KalanKarakter);
+                $('#limit').removeAttr('disabled');
+            }
+        }
+}
+</script>
+</head>
+<body>
+<textarea cols="50" id="kutu" onkeyup="kontrol(event)"></textarea><br />
+<input type="submit" id="limit" value="Kalan: 140" style="width:100px;" />
+</body>
+</html>
